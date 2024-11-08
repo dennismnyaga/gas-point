@@ -1,6 +1,8 @@
 import React from 'react'
 import getApiUrl from '../../../urlsPath'
 import { useNavigate } from 'react-router-dom';
+import { ArrowLongRightIcon } from '@heroicons/react/24/outline';
+import FormattedAmount from '../../components/FormattedAmount';
 // import { Product } from './productsSlice' // adjust path as needed
 
 interface ProductExcerptProps {
@@ -40,13 +42,13 @@ const ProductExcerpt: React.FC<ProductExcerptProps> = ({ product }) => {
     const handleCardClick = () => {
         navigate(`/product/${product.id}`);
     };
-    
+
     return (
-        <div className='border p-4 rounded-lg bg-white shadow-md'>
+        <div className='border p-1 rounded-lg bg-white shadow-md'>
             <img  onClick={handleCardClick} src={imageUrl} alt='product' className='w-full h-48 object-cover rounded-md' />
-            <h2 className='text-xl font-bold mt-2'>{product.name}</h2>
+            <h2 className='text-base whitespace-nowrap font-bold mt-2 flex items-center '>{product.name} {product.weight.weight} <ArrowLongRightIcon className='h-8 w-12' /> {product.sold_as.name} </h2>
             <p className='text-gray-600'>{product.description}</p>
-            <p className='text-lg font-semibold'>Kes{product.price}</p>
+            <p className='text-lg font-semibold'><FormattedAmount amount={product.price} /></p>
         </div>
     )
 }
