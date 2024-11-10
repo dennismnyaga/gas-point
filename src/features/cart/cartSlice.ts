@@ -6,6 +6,7 @@ interface CartItem {
   name: string;
   quantity: number;
   price: number;
+  image: string;
 }
 
 // Define the initial state, loading from localStorage if it exists

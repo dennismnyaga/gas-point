@@ -4,6 +4,7 @@ import { setupListeners } from "@reduxjs/toolkit/query"
 import productsSlice from "../features/products/productsSlice"
 import singleProductSlice from "../features/singleProduct/singleProductSlice"
 import cartSlice from "../features/cart/cartSlice"
+import orderSlice from "../features/order/orderSlice"
 
 
 // `combineSlices` automatically combines the reducers using
@@ -13,6 +14,7 @@ const rootReducer = combineSlices(
     products: productsSlice,
     product: singleProductSlice,
     cart: cartSlice,
+    order: orderSlice,
   }
 )
 // Infer the `RootState` type from the root reducer
