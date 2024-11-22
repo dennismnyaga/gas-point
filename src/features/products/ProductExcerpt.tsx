@@ -53,9 +53,10 @@ const ProductExcerpt: React.FC<ProductExcerptProps> = ({ product }) => {
         navigate('/cart');
     };
 
+    
     return (
         <div className='border p-1 rounded-lg bg-white shadow-md'>
-            <img onClick={() => navigate(`/product/${product.id}`)} src={imageUrl} alt='product' className='w-full h-48 object-cover rounded-md' />
+            <img onClick={() => navigate(`/product/${product.id}`)} src={product.image} alt='product' className='w-full h-48 object-cover rounded-md lg:h-fit' />
             <h2 className='text-base whitespace-nowrap mt-2 flex items-center text-gray-500 font-bold mb-2'>
                 {product.name} {product.weight.weight} <ArrowLongRightIcon className='h-8 w-12' /> {product.sold_as.name}
             </h2>

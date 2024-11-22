@@ -8,6 +8,7 @@ import {
 import ProductDetails from "./pages/ProductDetails";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
+import Admin from "./adminstrator/Admin";
 
 
 const App = () => {
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="product/:id" element={<ProductDetails />} />
         <Route path="cart/" element={<Cart />} />
         <Route path="checkout/" element={<Checkout />} />
+        <Route path="admin/" element={<Admin />} />
       </Routes>
     </BrowserRouter>
     </div>
