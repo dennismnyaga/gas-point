@@ -5,6 +5,7 @@ import productsSlice from "../features/products/productsSlice"
 import singleProductSlice from "../features/singleProduct/singleProductSlice"
 import cartSlice from "../features/cart/cartSlice"
 import orderSlice from "../features/order/orderSlice"
+import adminOrdersSlice from "../features/ADMIN/orders/adminOrdersSlice"
 
 
 // `combineSlices` automatically combines the reducers using
@@ -15,6 +16,7 @@ const rootReducer = combineSlices(
     product: singleProductSlice,
     cart: cartSlice,
     order: orderSlice,
+    orders: adminOrdersSlice,
   }
 )
 // Infer the `RootState` type from the root reducer

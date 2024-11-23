@@ -7,7 +7,7 @@ import { addOrder } from '../features/order/orderSlice';
 import { clearCart } from '../features/cart/cartSlice';
 
 const Checkout = () => {
-    const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch()
   // State for customer details
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -24,8 +24,8 @@ const Checkout = () => {
     if (firstName && lastName && phoneNumber && deliveryLocation && cartItems.length > 0) {
       const orderData = {
         customerDetails: {
-          first_name:firstName,
-          last_name:lastName,
+          first_name: firstName,
+          last_name: lastName,
           phone: phoneNumber,
           location: deliveryLocation,
         },
@@ -34,12 +34,12 @@ const Checkout = () => {
 
       // Dispatch the addOrder action
       const resultAction = await dispatch(addOrder({ orderData }));
-    //   console.log('idd ', resultAction.payload.order.order_number)
+      //   console.log('idd ', resultAction.payload.order.order_number)
       if (addOrder.fulfilled.match(resultAction)) {
         setOrderPlaced(true);
         setOrderId(resultAction.payload.order.order_number); // Replace `id` with actual field returned by your API
         dispatch(clearCart());
-    } else {
+      } else {
         alert('Failed to place the order. Please try again.');
       }
     } else {
@@ -97,7 +97,10 @@ const Checkout = () => {
               <div className='space-y-2'>
                 {cartItems.map((item) => (
                   <div key={item.id} className='flex justify-between items-center border-b pb-2'>
-                    <p>{item.name} (x{item.quantity})</p>
+                    <div className=' flex items-center'>
+                      <img className='h-7 w-7 object-contain' src={item.image} alt='cart-image' />
+                      <p>{item.name} (x{item.quantity})</p>
+                    </div>
                     <p>KES {(item.price * item.quantity).toLocaleString()}</p>
                   </div>
                 ))}

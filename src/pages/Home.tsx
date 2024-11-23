@@ -23,19 +23,18 @@ const Home = () => {
         : allProducts.filter(product => product.sold_as.name === filter);
 
 
-    console.log('counts ', productCounts)
     return (
         <div className='flex flex-col min-h-screen'>
             <Navbar />
             <section className='flex-grow mt-4 p-2'>
                 <div className='flex space-x-4 mb-4'>
-                    <div onClick={() => setFilter('refill')} className='bg-white px-3 py-1 rounded-lg'>
+                    <div onClick={() => setFilter('refill')} className='bg-white px-3 py-1 rounded-lg cursor-pointer'>
                         <h5 className='text-lg font-semibold'>refill</h5>
                     </div>
-                    <div onClick={() => setFilter('sell')} className='bg-white px-3 py-1 rounded-lg'>
+                    <div onClick={() => setFilter('sell')} className='bg-white px-3 py-1 rounded-lg cursor-pointer'>
                         <h1 className='text-lg font-semibold'>sell</h1>
                     </div>
-                    <div onClick={() => setFilter('others')} className='bg-white px-3 py-1 rounded-lg'>
+                    <div onClick={() => setFilter('others')} className='bg-white px-3 py-1 rounded-lg cursor-pointer'>
                         <h1 className='text-lg font-semibold'>others</h1>
                     </div>
                 </div>

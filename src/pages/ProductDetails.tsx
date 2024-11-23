@@ -34,12 +34,6 @@ const ProductDetails = () => {
   }, [dispatch])
 
 
-  // const handleAddToCart = () => {
-  //   if (product) {
-  //     dispatch(addItem({ id: product.id, name: product.name, price: product.price, quantity, image: product.image }));
-  //   }
-  // };
-
   const handleAddToCart = () => {
     const parsedQuantity = Math.max(1, Number(quantity)); // Ensure a minimum of 1 when adding to the cart
   
