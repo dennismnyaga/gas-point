@@ -61,14 +61,15 @@ const initialState: ProductsState = {
 
 };
 
-export const fetchProducts = createAsyncThunk("products/fetchProducts", async ({ page = 1, pageSize = 2 }: { page: number; pageSize?: number }) => {
+export const fetchProducts = createAsyncThunk("products/fetchProducts", async ({ page = 1, pageSize = 8 }: { page: number; pageSize?: number }) => {
   const offset = (page - 1) * pageSize; 
+
+  // await new Promise((resolve) => setTimeout(resolve, 30000))
   const response = await axios.get<{
     count: number;
     next: string | null;
     previous: string | null;
     results: Products[];
-  // }>(`${apiUrl}?page=${page}&page_size=${pageSize}`);
   }>(`${apiUrl}?offset=${offset}&page_size=${pageSize}`);
   console.log('after offset ', response.data)
   return response.data;

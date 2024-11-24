@@ -85,7 +85,7 @@ const ProductDetails = () => {
         )}
 
         {/* Product Details */}
-        {product && (
+        {productStatus === 'succeeded' && (
           <div className='grid grid-cols-1 lg:grid-cols-2 gap-8'>
             {/* Product Image */}
             <div className='flex justify-center'>
@@ -103,7 +103,6 @@ const ProductDetails = () => {
               <p className='text-lg font-semibold text-gray-800 mb-4'>
                 <FormattedAmount amount={product.price} />
               </p>
-              {/* <p className='text-lg font-semibold text-gray-800 mb-4'>Kes {product.price}</p> */}
 
               {/* Quantity and Add to Cart */}
               <div className='flex items-center space-x-2 mb-4'>
@@ -137,24 +136,6 @@ const ProductDetails = () => {
             <p>Product not found.</p>
           </div>
         )}
-
-        {/* <div className='mt-8'>
-          <h2 className='text-2xl font-bold mb-4'>Related Products</h2>
-          <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
-            {product.relatedProducts?.map((relatedProduct) => (
-              <div key={relatedProduct.id} className='border p-4 rounded-lg shadow-md'>
-                <img
-                  src={relatedProduct.image}
-                  alt={relatedProduct.name}
-                  className='w-full h-32 object-cover mb-2 rounded-md'
-                />
-                <h3 className='text-lg font-bold'>{relatedProduct.name}</h3>
-                <p className='text-gray-600'>Kes {relatedProduct.price}</p>
-              </div>
-            ))}
-          </div>
-        </div> */}
-
       </section>
       <Footer />
     </div>
