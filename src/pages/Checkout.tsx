@@ -3,7 +3,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { useAppDispatch, useAppSelector } from '../app/hooks'; // Custom hook to access Redux store
 import axios from 'axios'; // For making HTTP requests
-import { addOrder } from '../features/order/orderSlice';
+import { addOrder, getOrderStatus } from '../features/order/orderSlice';
 import { clearCart } from '../features/cart/cartSlice';
 
 const Checkout = () => {
@@ -15,6 +15,9 @@ const Checkout = () => {
   const [deliveryLocation, setDeliveryLocation] = useState('');
   const [orderPlaced, setOrderPlaced] = useState(false);
   const [orderId, setOrderId] = useState<string | null>(null);
+
+
+  const order_status = useAppSelector(getOrderStatus);
 
   // Get cart items from Redux store
   const cartItems = useAppSelector((state) => state.cart);
@@ -111,11 +114,39 @@ const Checkout = () => {
             </div>
 
             {/* Place Order Button */}
+
             <button
+              disabled={order_status === 'loading'}
               onClick={handlePlaceOrder}
-              className='mt-4 w-full py-2 bg-blue text-white font-semibold rounded-md hover:bg-blue-700 transition'
-            >
-              Place Order
+              className={`mt-4 w-full py-2 font-semibold rounded-md transition ${order_status === 'loading' ? 'bg-gray-400 cursor-not-allowed' : 'bg-blue text-white hover:bg-blue-700'
+                }`}            >
+              {order_status === 'loading' ? (
+                <div className="flex items-center justify-center">
+                  <svg
+                    className="animate-spin h-5 w-5 mr-2 text-white"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    ></circle>
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                    ></path>
+                  </svg>
+                  Processing...
+                </div>
+              ) : (
+                'Place Order'
+              )}
             </button>
           </>
         ) : (

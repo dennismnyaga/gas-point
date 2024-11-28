@@ -39,6 +39,7 @@ const ProductDetails = () => {
   
     if (product) {
       dispatch(addItem({ id: product.id, name: product.name, price: product.price, quantity: parsedQuantity, image: product.image }));
+      
     }
   
     // Reset input to default value after adding to cart
@@ -90,8 +91,8 @@ const ProductDetails = () => {
             {/* Product Image */}
             <div className='flex justify-center'>
               <img
-                src={imageUrl}
-                alt={product.name}
+                src={product?.image}
+                alt={product?.name}
                 className='max-w-full h-auto rounded-md'
               />
             </div>

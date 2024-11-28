@@ -46,7 +46,7 @@ const Cart = () => {
             {cartItems.map((item: CartItem) => (
               <div key={item.id} className='flex flex-col md:flex-row justify-between items-center border-b pb-4'>
                 {/* Item Details with Image */}
-                <div className='flex items-center space-x-4'>
+                <div className='flex items-center space-x-4 mb-2'>
                   <img
                     src={`${item.image}`}
                     alt={item.name}

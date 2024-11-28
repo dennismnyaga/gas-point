@@ -24,7 +24,7 @@ const Navbar = () => {
             <div className=' flex items-center space-x-1'>
                 <img className=' w-5 h-5 object-contain' src={whats} alt='call' />
                 <div>
-                    +<HandlePhoneLink phoneNumber={+254701593906} />
+                    +<HandlePhoneLink phoneNumber={+254700200566} />
                 </div>
             </div>
             <Link to='/cart'>
