@@ -91,7 +91,9 @@ const ProductDetails = () => {
             {/* Product Image */}
             <div className='flex justify-center'>
               <img
-                src={product?.image}
+                // src=`https://murilanother.pythonanywhere.com/${product?.image}`
+                src={product?.image ? `https://murilanother.pythonanywhere.com/${product.image}` : "https://via.placeholder.com/150"}
+
                 alt={product?.name}
                 className='max-w-full h-auto rounded-md'
               />

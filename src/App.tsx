@@ -9,6 +9,7 @@ import ProductDetails from "./pages/ProductDetails";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import Admin from "./adminstrator/Admin";
+import Analytics from "./pages/Analytics";
 
 
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
         <Route path="cart/" element={<Cart />} />
         <Route path="checkout/" element={<Checkout />} />
         <Route path="admin/" element={<Admin />} />
+        <Route path="analytics/" element={<Analytics />} />
       </Routes>
     </BrowserRouter>
     </div>
